@@ -90,9 +90,9 @@ app.get("/", ensureAuthenticated, async (req, res) => {
     res.sendFile(`${process.env.VITE_REACT_APP_CLIENT_URL}/`);
 })
 
-app.use( "/login", (req, res) => {
-    res.sendFile(`${process.env.VITE_REACT_APP_CLIENT_URL}/login`)
-})
+// app.use( "/login", (req, res) => {
+//     res.sendFile(`${process.env.VITE_REACT_APP_CLIENT_URL}/login`)
+// })
 
 app.use( express.static('dist',{extensions:['html']}))
 
