@@ -72,6 +72,12 @@ app.get('/auth/github/callback',
         res.redirect(`${process.env.VITE_REACT_APP_SERVER_API_URL}/`);
     });
 
+// Ignore favicon requests to avoid logging 404 errors
+app.get('/favicon.ico', (req, res) => {
+    res.status(204); // No Content
+    res.end();
+});
+
 app.get('/logout', function(req, res){
     req.logout(function(err) {
         if (err) { return next(err); }
