@@ -1,8 +1,7 @@
 ## Book Tracker A4
 *Carter Moore*
 
-
-your hosting link e.g. http://a4-charlieroberts.glitch.me
+Link: https://a4-carter-moore-41a54b902c55.herokuapp.com/
 
 This website is a book tracker that lets you keep track of books you've read, are reading, or are going to read. Since assignment 3, the project has been split into a frontend (React+Vite) and a backend (Express). The website is now split into components like the book table and the add a book form, and utilizes useState and component props to pass, store, and update information. 
 
