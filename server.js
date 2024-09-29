@@ -96,6 +96,7 @@ app.get("/", ensureAuthenticated, async (req, res) => {
 
 app.use( express.static('dist',{extensions:['html']}))
 
+app.get('*', (req, res) => { res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html')); });
 
 // Handle post requests and add new book to collection
 app.post( '/submit', async (req, res) => {
