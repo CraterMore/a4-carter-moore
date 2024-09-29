@@ -87,11 +87,11 @@ app.get("/", ensureAuthenticated, async (req, res) => {
         collection = await client.db("book-tracker").collection(req.user.id);
     }
 
-    res.redirect(`${process.env.VITE_REACT_APP_CLIENT_URL}/`);
+    res.sendFile(`${process.env.VITE_REACT_APP_CLIENT_URL}/`);
 })
 
 app.use( "/login", (req, res) => {
-    res.redirect(`${process.env.VITE_REACT_APP_CLIENT_URL}/login`)
+    res.sendFile(`${process.env.VITE_REACT_APP_CLIENT_URL}/login`)
 })
 
 app.use( express.static('dist',{extensions:['html']}))
