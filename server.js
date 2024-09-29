@@ -100,10 +100,6 @@ app.get("/", ensureAuthenticated, async (req, res) => {
 //     res.sendFile(`${process.env.VITE_REACT_APP_CLIENT_URL}/login`)
 // })
 
-app.use( express.static('dist',{extensions:['html']}))
-
-app.get('*', (req, res) => { res.sendFile(path.join(__dirname, 'dist', 'index.html')); });
-
 // Handle post requests and add new book to collection
 app.post( '/submit', async (req, res) => {
     const newBook = req.body;
@@ -185,5 +181,11 @@ function ensureAuthenticated(req, res, next) {
     if (req.isAuthenticated()) { return next(); }
     res.redirect('/login')
 }
+
+app.use( express.static('dist',{extensions:['html']}))
+
+app.get('*', (req, res) => { res.sendFile(path.join(__dirname, 'dist', 'index.html')); });
+
+app.disable('etag')
 
 app.listen( process.env.PORT || 3000 )
